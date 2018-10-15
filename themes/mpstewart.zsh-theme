@@ -2,14 +2,14 @@
 setopt prompt_subst
 
 PROMPT='%F{green%}$USER%F{white%}`git_prompt_info`%{$reset_color%} > '
-RPROMPT='${prompt_short_dir}'
+RPROMPT='`get_pwd`'
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" "
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY=" %F{red%}✗"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %F{green%}✔"
 
-chpwd () {
+function get_pwd(){
   git_root=$PWD
   while [[ $git_root != / && ! -e $git_root/.git ]]; do
     git_root=$git_root:h
@@ -18,8 +18,8 @@ chpwd () {
     unset git_root
     prompt_short_dir=%~
   else
-    prompt_short_dir=${PWD#$git_root/}
+    parent=${git_root%\/*}
+    prompt_short_dir=${PWD#$parent/}
   fi
+  echo $prompt_short_dir
 }
-chpwd
-
