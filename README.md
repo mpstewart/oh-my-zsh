@@ -3,7 +3,7 @@
 
 ### Description
 
-This is my for of Oh My Zsh, which I've basically done for the following reasons:
+This is my fork of Oh My Zsh, which I've basically done for the following reasons:
 
 ##### 1. Custom theme
 
