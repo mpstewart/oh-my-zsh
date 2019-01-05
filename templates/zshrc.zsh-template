@@ -36,9 +36,9 @@ source $ZSH/oh-my-zsh.sh
 
 # complete env setup
 # this is order sensitive
-source $HOME/.shell/vars
-source $HOME/.shell/aliases
-source $HOME/.shell/functions
+source $HOME/.env/vars
+source $HOME/.env/aliases
+source $HOME/.env/functions
 
 
 # You may need to manually set your language environment
